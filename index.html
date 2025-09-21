@@ -3,43 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elemental Forge: A Card Game</title>
+    <title>Elemental Forge - An Official Rulebook</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="icon" type="image/x-icon" href="./favi.ico">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-background: #262626;
             --color-text-primary: #f5f1e8;
             --color-text-secondary: #c2b19b;
-            --color-accent-gold: #C69A41;
+            --color-accent-gold: #ffc24d;
             --color-border-brown: #947551;
-            --color-card-bg: #262626;
+            --color-background-dark: #1a1510;
+            --color-container-bg: rgba(38, 38, 38, 0.9);
         }
-		
-		html {
-			background-image: url("./background.png");
-		}
+
         body {
             font-family: 'Lora', serif;
-            background-color: var(--color-background);
+            background-image: url('./background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
             color: var(--color-text-secondary);
             margin: 0;
             line-height: 1.6;
-            background-attachment: fixed;
+            overflow-x: hidden;
+            padding: 2rem 0;
         }
 
         .container {
-            max-width: 900px;
+            position: relative;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: 2rem 1.5rem;
+            background-color: var(--color-container-bg);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--color-border-brown);
+            border-radius: 8px;
+            z-index: 10;
         }
-
+        
         header {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1rem 0;
             margin-bottom: 2rem;
-            border-bottom: 5px solid var(--color-accent-gold);
         }
 
         .logo {
@@ -49,9 +56,9 @@
 
         h1 {
             font-family: 'Cinzel Decorative', serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: var(--color-accent-gold);
-            text-shadow: 0 0 10px rgba(198, 154, 65, 0.5);
+            text-shadow: 0 0 10px rgba(255, 194, 77, 0.7);
             margin: 0;
             letter-spacing: 2px;
         }
@@ -59,22 +66,21 @@
         h2, h3 {
             font-family: 'Cinzel Decorative', serif;
             color: var(--color-text-primary);
-            border-bottom: 2px solid var(--color-border-brown);
+            border-bottom: 1px dashed var(--color-border-brown);
             padding-bottom: 0.5rem;
             margin-top: 2.5rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         section {
-            background-color: var(--color-card-bg);
-            border: 2px solid var(--color-border-brown);
-            border-radius: 12px;
-            padding: 2rem;
+            background-color: transparent;
+            border: none;
+            padding: 0;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: none;
         }
-        
-        p, ul {
+
+        p, ul, table {
             color: var(--color-text-secondary);
         }
 
@@ -88,13 +94,14 @@
             position: relative;
             padding-left: 1.5rem;
         }
-        
+
         li::before {
             content: "✦";
             position: absolute;
             left: 0;
             color: var(--color-accent-gold);
             font-size: 1.2em;
+            text-shadow: 0 0 5px rgba(255, 194, 77, 0.5);
         }
 
         strong {
@@ -103,11 +110,12 @@
         }
 
         .decorative-divider {
-            height: 3px;
+            height: 1px;
             background: var(--color-border-brown);
             margin: 2rem auto;
             width: 80%;
             border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         footer {
@@ -116,24 +124,50 @@
             color: var(--color-text-secondary);
             font-size: 0.9rem;
         }
-        
+
         .image-container {
             text-align: center;
             margin: 1.5rem 0;
         }
-        
+
         .game-image {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             border: 2px solid var(--color-border-brown);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        
+        th, td {
+            border: 1px solid var(--color-border-brown);
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        th {
+            background-color: var(--color-border-brown);
+            color: var(--color-text-primary);
+            font-weight: 700;
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .table-responsive {
+            overflow-x: auto;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             .container {
                 padding: 1rem 0.5rem;
@@ -147,135 +181,167 @@
             <img src="./logo.png" alt="Elemental Forge Logo" class="logo">
         </header>
 
-            <section class="game-overview">
-                <h2>A New Way to Play</h2>
-                <p>Welcome, brave adventurers, to Elemental Forge! This card game combines strategic card play, deck building, and a touch of fate to create a unique experience. Your goal is to be the first to collect <strong>15 points</strong> by crafting powerful elemental combinations.</p>
-                <div class="image-container">
-                    <img src="./table.png" alt="An ancient wooden table with cards and dice" class="game-image">
-                </div>
-            </section> 
-			
-			
-			<div class="decorative-divider"></div>
-			
-            <section class="game-setup">
-                <h2>Game Setup</h2>
-                <ul>
-                    <li>A standard 52-card deck with Jokers.</li>
-                    <li>A set of four dice.</li>
-                    <li>Two to four players.</li>
-                </ul>
-                <h3>Card Values:</h3>
-                <ul>
-                    <li><strong>Aces</strong> = 1 point</li>
-                    <li><strong>2-10</strong> = Face value</li>
-                    <li><strong>Jacks, Queens, Kings</strong> = 10 points</li>
-                    <li><strong>Jokers (Catalyst Cards)</strong>: Doubles the value of the combined card. Does not have a special effect.</li>
-                </ul>
-            </section>
+        <section>
+            <h2>Chapter 1: The Forge's Call</h2>
+            <h3>1.1. Introduction: A Narrative of Elements and Fate</h3>
+            <p>The world exists in a delicate balance of four primal forces: Fire, Water, Air, and Earth. For centuries, these elements have been harnessed by a select few, the Elemental Forgers, to shape and command the world. In this game, you assume the role of one such Forger, a master artisan who must draw upon the raw power of the elements and combine them into something greater than the sum of their parts. The objective is not merely to amass power, but to achieve a state of complete elemental ascendancy, outmaneuvering and out-thinking your rivals in a dynamic, high-stakes contest of wits and luck. This game combines strategic card play, calculated risk, and a dash of luck, all within a compact, engaging experience designed for 30 to 60 minutes of intense competition.</p>
+            <h3>1.2. Game Objective: Ascendancy of the Elements</h3>
+            <p>The primary goal of Elemental Forge is to be the first player to achieve a score of <strong>100 points</strong>. The game concludes immediately when a player reaches or exceeds this point threshold at the end of their turn, granting them a definitive victory. This clear and singular objective provides a focused pathway to victory, allowing players to align their strategic decisions with a well-defined end goal. All actions taken during the game, from drawing cards to launching a dice attack, should be viewed through the lens of this final objective.</p>
+            <h3>1.3. Components: The Tools of the Trade</h3>
+            <p>Before beginning, ensure you have all the necessary components for your journey as an Elemental Forger. The game includes:</p>
+            <ul>
+                <li><strong>A standard 52-card deck:</strong> The deck should have all Jokers removed. For the purpose of the game's mechanics, all red cards (Hearts and Diamonds) are considered part of the Fire and Earth elements, while all black cards (Clubs and Spades) are part of the Water and Air elements.</li>
+                <li><strong>Two Joker cards:</strong> These cards serve a unique function in the game, known as Catalyst Cards.</li>
+                <li><strong>Four six-sided dice:</strong> These dice are a crucial part of the game's core mechanics, introducing an element of fate and tactical risk.</li>
+                <li><strong>Two to four players:</strong> Elemental Forge is designed for a small group of players.</li>
+            </ul>
+            <p>A crucial part of understanding the game is familiarity with the cards themselves. The values are as follows: Aces are worth 1 point; cards from 2 through 10 are worth their face value; and Jacks, Queens, and Kings are each worth 10 points. For quick reference, examine Figure 1: Anatomy of a Card for a visual breakdown of the card attributes used in the game. This diagram highlights the card's value, suit, and color, which are all integral to the elemental combinations you will forge.</p>
+        </section>
 
-            <div class="decorative-divider"></div>
+        <div class="decorative-divider"></div>
 
-            <section class="game-play">
-                <h2>Game Play</h2>
-                <h3>1. The Starting Hand and "The Forge"</h3>
-                <p>Each player starts with a hand of 5 cards. The remaining cards form the <strong>Draw Deck</strong>. The top card of the Draw Deck is flipped over and becomes the first card in the <strong>Forge Pile</strong>, where players will play their cards.</p>
-                <h3>2. Your Turn</h3>
-                <p>On your turn, you must choose one of the following actions:</p>
-                <ul>
-                    <li><strong>Draw:</strong> Take the top two cards from the Draw Deck.</li>
-                    <li><strong>Play and Combine:</strong> Play a card from your hand onto the Forge Pile to create a new "elemental" card combination.</li>
-                    <li><strong>Draw and Discard:</strong> Discard as many cards as you want from your hand and draw the same number of cards from the Draw Deck.</li>
-                </ul>
-            </section>
+        <section>
+            <h2>Chapter 2: Preparing the Elements</h2>
+            <h3>2.1. Game Setup: Arranging the Forge</h3>
+            <p>To set up the game, follow these steps in the specified order to ensure a smooth and clear start. A visual representation of the final setup is provided in Figure 2: Game Setup to assist you.</p>
+            <div class="image-container">
+                <img src="./table.png" alt="Diagram of the game setup, showing the Draw Deck, Forge Pile, Catalyst Cards, and player areas." class="game-image">
+            </div>
+            <ul>
+                <li><strong>Remove the Jokers:</strong> Before anything else, remove all Jokers from the standard 52-card deck. These cards will be used separately.</li>
+                <li><strong>The Draw Deck:</strong> Thoroughly shuffle the remaining 52 cards and place them face down in the center of the table. This is the Draw Deck.</li>
+                <li><strong>The Forge Pile:</strong> Turn the top card of the Draw Deck face up and place it next to the deck. This card marks the beginning of the Forge Pile, the central space where all elemental combinations are created.</li>
+                <li><strong>The Catalyst Cards:</strong> Place the two Joker cards (Catalyst Cards) face up next to the Draw Deck. These are a public, shared resource that any player may acquire during the game.</li>
+                <li><strong>Initial Hands:</strong> Each player draws five cards from the top of the Draw Deck. These cards form your hand and should be kept hidden from other players.</li>
+                <li><strong>Choosing a First Player:</strong> The player who most recently visited a body of water goes first. Alternatively, the player who last ate a fiery dish may begin. This player will start the first round.</li>
+            </ul>
+            <h3>2.2. The Starting Hand & The Forge Pile</h3>
+            <p>As you begin your game, your hand of five cards is your private set of resources. The cards in your hand are the raw materials you will use to create elemental combinations. The Forge Pile, on the other hand, is a public space. The card at the top of the Forge Pile is the card you must combine with on your turn to create a new element. The dynamic between your private hand and the public Forge Pile is a fundamental element of the game's strategy, requiring careful consideration of your available cards versus the constantly changing public card.</p>
+        </section>
 
-            <div class="decorative-divider"></div>
+        <div class="decorative-divider"></div>
 
-            <section class="elemental-combinations">
-                <h2>Elemental Combinations & Effects</h2>
-                <p>When you play a card from your hand onto the Forge Pile, it combines with the top card on that pile. The new card's value is the sum of the two cards. You gain the points and a special effect based on the cards' color or suit. The new card is placed at the bottom of the Draw Deck.</p>
-                
-                <h3>Elemental Effects:</h3>
-                <ul>
-                    <li><strong>Fire Element (Red Cards):</strong> Combining two red cards creates <strong>Ignite</strong>. You may then immediately discard one card from your hand and force another player to also discard one card.</li>
-                    <li><strong>Water Element (Black Cards):</strong> Combining two black cards creates <strong>Hydroblast</strong>. You can choose to draw one extra card from the deck and add it to your hand.</li>
-                    <li><strong>Air Element (Spades & Clubs):</strong> Combining two cards of the same suit creates <strong>Gust</strong>. You may then swap one card from your hand with a card in another player's hand.</li>
-                    <li><strong>Earth Element (Diamonds & Hearts):</strong> Combining two cards of the same suit creates <strong>Quake</strong>. You can then force all players to discard one card from their hand.</li>
-                </ul>
-                <div class="image-container">
-                    <img src="./elements.png" alt="An artistic representation of the four elements" class="game-image">
-                </div>
-            </section>
+        <section>
+            <h2>Chapter 3: Core Gameplay - Forging Your Destiny</h2>
+            <h3>3.1. The Turn Structure: A Cycle of Action</h3>
+            <p>The game proceeds in a clockwise fashion, with each player taking a single turn before passing the action to the next player. On your turn, you must choose and perform one of three distinct actions. The simplicity of this turn structure is a core design choice, as it minimizes downtime and keeps the game moving at a brisk pace. Your choices are clear and consequential, each providing a different avenue for progress. For a visual overview of a typical turn, see Figure 3: Turn Flowchart, which uses standard flowchart symbols to illustrate the decision points and actions.</p>
+            <h3>3.2. Action 1: The Draw Action</h3>
+            <p>This is the most straightforward action available to you. By choosing the Draw Action, you take the top two cards from the Draw Deck and add them to your hand. This is a fundamental action for resource acquisition, allowing you to build up a larger hand and increase your chances of finding powerful card combinations in future turns.</p>
+            <h3>3.3. Action 2: Play and Combine</h3>
+            <p>This action is the heart of Elemental Forge. By choosing this action, you play a pair of cards of the same rank from your hand onto the Forge Pile to create an elemental combination. The combination's value is the sum of the two cards' point values, and this newly created value is immediately added to your total score. For example, combining a 5 of Hearts with a 5 of Diamonds creates a 10-point Fireball, and you add 10 to your score. The cards you played become the new top cards of the Forge Pile, and the original top card is placed at the bottom of the Draw Deck. This mechanism ensures the Forge Pile is in a constant state of flux, forcing you to adapt your strategy to the available combinations. The game's design makes achieving high-value combos a central strategic goal, as they are not only key for scoring but also for unleashing the game's most powerful abilities. The difficulty of attaining these combos is balanced by their powerful effects, creating a high-risk, high-reward dynamic that is core to the game's strategy.</p>
 
-            <div class="decorative-divider"></div>
+            <h3>Elemental Forging Reference Table</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Combination</th>
+                            <th>Element Name</th>
+                            <th>Point Value</th>
+                            <th>Special Effect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Two Red Cards (Hearts & Diamonds) of the same rank.</td>
+                            <td>Ignite</td>
+                            <td>Sum of two cards</td>
+                            <td>You may immediately discard one card from your hand, then force every other player to reveal their hand and discard their highest-value card. You draw one card for each card discarded this way.</td>
+                        </tr>
+                        <tr>
+                            <td>Two Black Cards (Spades & Clubs) of the same rank.</td>
+                            <td>Hydroblast</td>
+                            <td>Sum of two cards</td>
+                            <td>You can choose to draw one extra card from the deck. Additionally, you may take one card from the bottom of the discard pile and add it to your hand.</td>
+                        </tr>
+                        <tr>
+                            <td>Two Red Cards of the same suit (two Hearts or two Diamonds) of the same rank.</td>
+                            <td>Quake</td>
+                            <td>Sum of two cards</td>
+                            <td>You can force all players to discard one card from their hand, and they cannot draw a new card on their next turn.</td>
+                        </tr>
+                        <tr>
+                            <td>Two Black Cards of the same suit (two Spades or two Clubs) of the same rank.</td>
+                            <td>Gust</td>
+                            <td>Sum of two cards</td>
+                            <td>You may then swap one card from your hand with a card in another player's hand. After the swap, you may look at the top three cards of the Draw Deck, rearrange them in any order you choose, and then draw the top card.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>The careful and consistent use of this table will prove invaluable as you learn the game.</p>
 
-            <section class="dice-attacks">
-                <h2>Dice Roll Attacks</h2>
-                <p>After you create an elemental combination, you can choose to "attack" another player.</p>
-                <ul>
-                    <li>Declare which player you are attacking.</li>
-                    <li>Roll one die for every <strong>5 points</strong> in your combination. For example, a 12-point combo means you roll two dice.</li>
-                    <li>Each time a die lands on a <strong>6</strong>, it is a Hit.</li>
-                    <li>The attacked player can block hits by discarding a card from their hand. For each card they discard, they roll one die. If the die lands on a <strong>4, 5, or 6</strong>, they have successfully blocked a hit.</li>
-                    <li>For each unblocked hit, the attacked player loses that many points from their score.</li>
-                </ul>
-            </section>
+            <h3>3.4. Action 3: The Draw and Discard Action</h3>
+            <p>This action allows you to fine-tune your hand to prepare for future turns. By choosing this action, you may discard any number of cards from your hand and then draw the same number of cards from the Draw Deck. This is a powerful move for hand management, particularly if you have a hand of low-value or mismatched cards that prevent you from forming strong combinations. It serves as a vital recovery mechanic, particularly after a disruptive elemental effect, such as a Quake attack, has forced you to lose cards from your hand. The ability to use an entire turn to recover and rebuild your hand provides a critical defensive option against card disruption, ensuring that players are not completely helpless when facing powerful opponent abilities. This creates a balanced, back-and-forth dynamic where powerful offense is met with a clear and effective defensive counter-play.</p>
+        </section>
 
-            <div class="decorative-divider"></div>
+        <div class="decorative-divider"></div>
 
-            <section class="how-to-win">
-                <h2>How to Win</h2>
-                <p>The first player to reach <strong>15 points</strong> wins the game!</p>
-            </section>
+        <section>
+            <h2>Chapter 4: Elemental Mastery & Dice of Fate</h2>
+            <h3>4.1. Elemental Combinations & Effects</h3>
+            <p>The true strategic depth of Elemental Forge lies in the unique abilities tied to each element. These effects are not just a bonus; they are tactical tools that can fundamentally change the flow of the game.</p>
+            <ul>
+                <li><strong>Ignite (Two Red Cards):</strong> This is a direct, targeted attack that punishes opponents who are hoarding high-value cards, while also providing you with a resource boost. The ability to force your opponents to discard their best card provides a powerful strategic advantage, especially in the late game.</li>
+                <li><strong>Hydroblast (Two Black Cards):</strong> This effect is a self-serving utility. The ability to draw an extra card immediately provides a significant advantage, increasing the size of your hand for a future turn. By allowing you to also take a card from the bottom of the discard pile, this ability also provides a tactical choice between acquiring new resources or salvaging a valuable card that was previously discarded.</li>
+                <li><strong>Gust (Two Black Cards of the same suit):</strong> The Gust effect is a precision tool for resource manipulation. It allows you to acquire a card from an opponent's hand while giving them a card from yours. The added ability to see and rearrange the top of the Draw Deck introduces a powerful element of planning and foresight, allowing you to set yourself up for a powerful next turn.</li>
+                <li><strong>Quake (Two Red Cards of the same suit):</strong> This is a global disruption that affects all players simultaneously. The ability to force everyone to discard a card and then prevent them from drawing is a powerful way to reset the state of the game and can be devastating in the late stages of play when players are hoarding high-value cards for a winning combination. This is a high-impact, wide-area-of-effect ability.</li>
+            </ul>
+            <div class="image-container">
+                <img src="./elements.png" alt="An artistic representation of the four elements" class="game-image">
+            </div>
+            <h3>4.2. The Catalyst Card: The Power of Sacrifice</h3>
+            <p>The Catalyst Card is represented by the Joker and is an incredibly valuable resource in Elemental Forge. When you combine a Catalyst Card with any other card from your hand, it doubles the value of the card it is combined with. For example, a Catalyst Card combined with a 7 of Hearts creates a 14-point Ignite combo, which is added to your score. The Catalyst Card, however, does not possess its own special effect; it only grants the effect of the card it combines with.</p>
+            <p>This design choice creates a critical strategic decision point for players. The Catalyst Card is a source of immense raw point-efficiency, allowing for a rapid ascent to the 20-point goal. However, using it for a large point surge means forgoing the tactical utility of the elemental effects. For example, a player must choose between using two normal cards to achieve a targeted Ignite attack, or using the Catalyst Card to score a massive point gain. This creates a compelling trade-off between tactical disruption and raw scoring power, a dynamic that is at the heart of the game's balance and replayability.</p>
 
-        </main>
+            <h3>4.3. The Dice Roll Attacks: Fate's Equation</h3>
+            <p>After you successfully create an elemental combination, you have the option to use the dice to "attack" another player. The power of your attack is directly tied to the point value of the combination you just created, introducing a system where strategic card play is directly rewarded with a powerful offensive option. This mechanic is a core principle of the game, linking strategic effort to offensive capability.</p>
+            <ul>
+                <li>To determine the number of dice you roll, divide the point value of your combination by 5 and round down. You roll one die for every 5 points in your combination. For example, if you create a 12-point combination, you would roll two dice. If your combination is 15 points, you would roll three dice. Each time a die lands on a 6, it is considered a Hit.</li>
+                <li>The player you attack can choose to "block" your attack by discarding cards from their hand. For each card they discard, they can roll one die. If the die lands on a 4, 5, or 6, they have successfully blocked one of your hits. Unblocked hits result in a loss of points equal to the number of hits sustained.</li>
+                <li>To add a layer of calculated risk, you may choose to sacrifice one card from your hand before you roll to add an additional die to your attack roll. This allows players to strategically manage their hand to create more powerful attacks, even if their combination was not a high-point one. This system transforms the dice from a simple luck mechanic into a quantifiable reward for calculated risk and resource management, directly linking strategic effort with offensive capability.</li>
+            </ul>
+        </section>
+
+        <div class="decorative-divider"></div>
+
+        <section>
+            <h2>Chapter 5: Advanced Forging & Strategy</h2>
+            <h3>5.1. Strategic Insights: Beyond the Rulebook</h3>
+            <p>To master Elemental Forge, one must move beyond simply understanding the rules and begin to comprehend the strategic value of each action and element. Every action you take is a decision between a known value and a potential future benefit. The Draw action is a form of investment, sacrificing a turn to increase your potential for a high-value combo. The Draw and Discard action is a recovery tool, a tempo play that allows you to reset your hand after a disruption. The true strategic depth lies in the interplay between elemental abilities. A powerful Quake can be a game-winning play if it forces an opponent to discard their winning combination. However, its indiscriminate nature means it will also affect your own hand and can unintentionally help an opponent who was holding a hand of unwanted cards. Conversely, Gust is a precise, targeted ability that can steal a crucial card from a leading player, but it has no effect on the other players at the table. This game rewards flexible thinking and the ability to adapt to a changing board state. A player who only focuses on scoring points with high-value combos may quickly find themselves the target of multiple dice attacks, while a player who focuses solely on disruption may fall behind in the race to 20 points. The key is to find a balance between accumulating points and tactically controlling the game through your chosen elemental effects.</p>
+            <h3>5.2. Rules FAQ & Edge Cases</h3>
+            <p>This section addresses common questions and potential rule conflicts to ensure a smooth and fair playing experience.</p>
+            <ul>
+                <li><strong>What if a player cannot discard a card to block an attack?</strong> A player can only discard cards from their hand to block hits. If they have no cards to discard, they cannot attempt to block and must suffer the full point penalty from the unblocked hits.</li>
+                <li><strong>What if the Draw Deck runs out of cards?</strong> If the Draw Deck is depleted, the game continues without it. Players can no longer use the Draw or Draw and Discard actions. The only way to continue playing is to use the Play and Combine action to recycle cards from the Forge Pile back into the deck, effectively creating a new Draw Deck. The game ends as soon as a player wins.</li>
+                <li><strong>Can I choose not to perform a dice attack after creating a combination?</strong> Yes. You may choose to skip the dice attack phase of your turn.</li>
+                <li><strong>Can a Catalyst Card be used as a special effect?</strong> No. The Catalyst Card, while powerful for its value-doubling ability, does not have its own special effect. When combined with a card, it only grants the elemental effect of the other card it is combined with. This is a critical balancing element of the game.</li>
+            </ul>
+        </section>
+
+        <div class="decorative-divider"></div>
+
+        <section>
+            <h2>Chapter 6: Final Forging & Glossary</h2>
+            <h3>6.1. Winning the Game</h3>
+            <p>The game concludes when a player reaches or exceeds a score of <strong>100 points</strong> at the end of their turn. That player is the victor and is recognized as the master Forger of the Elements. The game offers a dynamic and strategic experience where every decision carries weight. Good luck, and may the elements be ever in your favor.</p>
+            <h3>6.2. Glossary of Terms</h3>
+            <ul>
+                <li><strong>Catalyst Card:</strong> The Joker card. When combined with another card, it doubles the other card's point value. It does not have a special effect of its own.</li>
+                <li><strong>Draw Deck:</strong> The face-down pile of cards from which players draw.</li>
+                <li><strong>Elemental Combination:</strong> A set of two cards combined to create a new element.</li>
+                <li><strong>The Forge Pile:</strong> The central, face-up pile of cards where combinations are created. It is a public space.</li>
+                <li><strong>Hand:</strong> The cards held privately by each player.</li>
+                <li><strong>Hit:</strong> An unblocked die roll of a 6 in a dice attack.</li>
+                <li><strong>Point Value:</strong> The numerical value assigned to each card (Aces=1, 2-10=face value, J-K=10).</li>
+            </ul>
+        </section>
+        
+        <div class="decorative-divider"></div>
 
         <footer>
-            <div class="decorative-divider"></div>
-            <p>&copy; 2025 Elemental Forge. All rights reserved.</p>
+            <p>&copy; 2025 Elemental Forge. Made by Varconstint, All rights reserved.</p>
         </footer>
     </div>
-    <!-- GSAP Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Set initial state for all sections
-            gsap.set('section', { y: 50, opacity: 0 });
-
-            // Animate sections on scroll
-            gsap.utils.toArray('section').forEach((section) => {
-                gsap.to(section, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    }
-                });
-            });
-
-            // Header and Logo animation
-            gsap.from('header', {
-                opacity: 0,
-                duration: 1,
-                y: -50,
-                ease: "power2.out"
-            });
-            gsap.from('.logo', {
-                opacity: 0,
-                scale: 0.8,
-                duration: 1,
-                delay: 0.5,
-                ease: "back.out(1.7)"
-            });
-        });
-    </script>
 </body>
 </html>
